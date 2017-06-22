@@ -4273,7 +4273,8 @@ public class DynoJedisClient implements JedisCommands, BinaryJedisCommands, Mult
 
 			setLoadBalancingStrategy(cpConfig);
 
-			JedisConnectionFactory connFactory = new JedisConnectionFactory(opMonitor);
+			JedisConnectionFactory connFactory = new JedisConnectionFactory(opMonitor, sslSocketFactory, sslParameters,
+					hostnameVerifier);
 
 			return startConnectionPool(appName, connFactory, cpConfig, cpMonitor);
 		}
